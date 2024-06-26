@@ -6,10 +6,18 @@ function handleProfileSignup(firstName, lastName, fileName) {
     signUpUser(firstName, lastName),
     uploadPhoto(fileName),
   ]).then((results) => {
-    return results.map((res) => ({
-      status: res.status,
-      value: res.status === 'fulfilled' ? res.value : res.reason,
-    }));
+    const arr = [];
+
+    results.forEach((res) => {
+      const { status } = res;
+      const obj = { status };
+
+      const value = status === 'fulfilled' ? res.value : res.reason.toString();
+      obj.value = value;
+      arr.push(obj);
+    });
+
+    return arr;
   });
 }
 
