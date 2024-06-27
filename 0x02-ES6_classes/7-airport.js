@@ -11,12 +11,12 @@ function validateName(name) {
 }
 
 class Airport {
-  constructor(code, name) {
-    validateCode(code);
+  constructor(name, code) {
     validateName(name);
+    validateCode(code);
 
-    this._code = code;
     this._name = name;
+    this._code = code;
   }
 
   get [Symbol.toStringTag]() {
