@@ -10,7 +10,7 @@ function validateName(name) {
   }
 }
 
-class Currency {
+class Airport {
   constructor(code, name) {
     validateCode(code);
     validateName(name);
@@ -19,27 +19,9 @@ class Currency {
     this._name = name;
   }
 
-  get code() {
-    return this._code;
-  }
-
-  set code(code) {
-    validateCode(code);
-    this._code = code;
-  }
-
-  get name() {
-    return this._name;
-  }
-
-  set name(name) {
-    validateName(name);
-    this._name = name;
-  }
-
-  displayFullCurrency() {
-    return `${this.name} (${this._code})`;
+  get [Symbol.toStringTag]() {
+    return `${this._code}`;
   }
 }
 
-export default Currency;
+export default Airport;
