@@ -1,4 +1,5 @@
 function cleanSet(set, startString) {
+  if (!startString) return '';
   let result = [];
 
   set.forEach((value) => {
