@@ -1,6 +1,6 @@
 function cleanSet(set, startString) {
   if (!startString) return '';
-  let result = [];
+  const result = [];
 
   set.forEach((value) => {
     if (!value.startsWith(startString)) return;

@@ -6,12 +6,10 @@ function updateStudentGradeByCity(students, city, newGrades) {
   );
 
   const newStudents = filteredStudents.map((student) => {
-    const grade =
-      newGrades.find((g) => g.studentId === student.id)?.grade || 'N/A';
+    const hasGrade = newGrades.find((g) => g.studentId === student.id);
+    const grade = hasGrade ? hasGrade.grade : 'N/A';
 
-    student.grade = grade;
-
-    return student;
+    return { ...student, grade };
   });
 
   return newStudents;
