@@ -24,10 +24,16 @@ const studentsList: Student[] = [student1, student2];
 const renderTable = (students: Student[]) => {
   const table = document.createElement('table');
 
+  table.style.border = 'red solid 1px';
+
   students.forEach((student) => {
     const row = table.insertRow();
+
     const firstNameCell = row.insertCell();
     const locationCell = row.insertCell();
+
+    firstNameCell.style.border = 'blue solid 1px';
+    locationCell.style.border = 'blue solid 1px';
 
     firstNameCell.textContent = student.firstName;
     locationCell.textContent = student.location;
